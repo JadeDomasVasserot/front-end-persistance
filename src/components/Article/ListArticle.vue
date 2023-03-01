@@ -1,37 +1,31 @@
 <template>
-  <v-table>
+  <v-table class="table">
     <thead>
     <tr>
       <th class="text-left">
-        Numéro
+        Name
       </th>
       <th class="text-left">
-        Nom
-      </th>
-      <th class="text-left">
-        Description
-      </th>
-      <th class="text-left">
-        Prix
+        Calories
       </th>
     </tr>
     </thead>
     <tbody>
-    <tr
-        v-for="item in desserts"
-        :key="item.name"
-    >
-      <td>{{ item.name }}</td>
-      <td>{{ item.calories }}</td>
+    <tr    >
+      <td>1</td>
+      <td>1</td>
     </tr>
     </tbody>
   </v-table>
+
 </template>
 
 <script>
-import axios from 'axios';
 
+import NavBarComponent from '../NavBar/NavBarComponent.vue'
 export default {
+  components: {NavBarComponent},
+
   data() {
     return {}
   },
