@@ -10,7 +10,7 @@
                     <v-btn type="submit" variant="outlined" color="#CD3C6F" block class="mt-2">Se connecter</v-btn>
                 </v-form>
                 <div class="mt-2">
-                    <p class="text-body-2">Vous n'avez pas de compte ?  <a href="#">Inscrivez-vous</a></p>
+                    <p class="text-body-2">Vous n'avez pas de compte ?  <a href="/register">Inscrivez-vous</a></p>
                 </div>
             </v-sheet>
         </div >
@@ -27,7 +27,7 @@ export default {
     methods: {
         login() {
             // Your login logic here
-            this.$router.push('/ListArticle')
+            this.$router.push('/articles')
         },
     },
 }

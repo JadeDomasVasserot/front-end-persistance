@@ -9,10 +9,25 @@ const router = createRouter({
       component: () => import('../views/LoginView.vue')
     },
     {
+      path: '/register',
+      name: 'register',
+      component: () => import('../views/RegisterView.vue')
+    },
+    {
+      path: '/CreateArticle',
+      name: 'Create Article',
+      component: () => import('../views/CreateArticleView.vue')
+    },
+    {
       path: '/articles',
       name: 'articles list',
       component: () => import('../views/ListArticleView.vue')
-    }
+    },
+    {
+      path: '/factures',
+      name: 'factures list',
+      component: () => import('../views/ListFactureView.vue')
+    },
   ]
 })
 
