@@ -10,9 +10,9 @@
     <tbody>
 
       <tr v-for="facture in factures" :key="facture.id">
-        <a href=""><td class="text-center">{{ facture.user.nom }} {{ facture.user.prenom }}</td>
+        <td class="text-center">{{ facture.user.nom }} {{ facture.user.prenom }}</td>
         <td class="text-center">{{ facture.total }}</td>
-        <td class="text-center">{{ facture.date }}</td></a>
+        <td class="text-center">{{ facture.date }}</td>
       </tr>
     </tbody>
   </v-table>
