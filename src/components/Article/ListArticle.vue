@@ -30,6 +30,7 @@
   <v-container fluid>
     <v-layout class="fixed-bottom">
         <v-flex>
+        
           <v-btn color="grey" class="mr-4">Créer article</v-btn>
         </v-flex>
     </v-layout>
@@ -67,7 +68,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>
