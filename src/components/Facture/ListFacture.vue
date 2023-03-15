@@ -2,6 +2,7 @@
   <v-table class="table">
     <thead>
       <tr>
+        <th>Numéro facture</th>
         <th class="text-center">Crée par</th>
         <th class="text-center">Total</th>
         <th class="text-center">Date</th>
@@ -11,7 +12,7 @@
     <tbody>
 
       <tr v-for="facture in factures" :key="facture.id">
-
+        <td class="text-center">{{ facture.name }}</td>
         <td class="text-center">{{ facture.user.nom }} {{ facture.user.prenom }}</td>
         <td class="text-center">{{ facture.total }}</td>
         <td class="text-center">{{
@@ -21,7 +22,9 @@
           <router-link :to="{ name: 'One Facture', params: { id: facture.id }}" class="text-decoration-none text-black">
           <v-btn class="mr-5">Afficher</v-btn>
           </router-link>
-          <v-btn class="ma-5">Modifier</v-btn>
+          <router-link :to="{ name: 'Edit Facture', params: { id: facture.id }}" class="text-decoration-none text-black">
+            <v-btn class="mr-5">Modifier</v-btn>
+          </router-link>
           <v-btn class="ma-5">Supprimer</v-btn>
         </td>
       </tr>

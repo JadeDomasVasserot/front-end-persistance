@@ -40,6 +40,11 @@ const router = createRouter({
       component: () => import('../views/AfficherFactureView.vue')
     },
     {
+      path: '/facture/edit/:id',
+      name: 'Edit Facture',
+      component: () => import('../views/ModifyFactureView.vue')
+    },
+    {
       path: '/addFacture',
       name: 'Create a Facture', 
       component: () => import('../views/AddFactureView.vue')

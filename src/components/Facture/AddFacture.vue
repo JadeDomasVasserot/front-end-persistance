@@ -1,7 +1,7 @@
 <template>
     <div>
       <v-form>
-        <v-text-field v-model="nouvelleFacture.name" label="Nom"></v-text-field>
+        <v-text-field v-model="nouvelleFacture.name" label="Numéro"></v-text-field>
         <v-text-field v-model="nouvelleFacture.total" label="Total"></v-text-field>
         <v-btn color="primary" @click="ajouterFacture">Ajouter</v-btn>
       </v-form>

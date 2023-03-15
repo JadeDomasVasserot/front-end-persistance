@@ -2,7 +2,7 @@ import User from "@/models/User";
 
 export default class Facture {
     private id: number;
-    private user: User;
+    user: User;
     private total: number;
     private date: Date;
 
