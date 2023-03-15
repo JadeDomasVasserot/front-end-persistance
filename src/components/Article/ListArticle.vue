@@ -1,45 +1,46 @@
 <template>
-    
   <v-table class="table">
     <thead>
-    <tr>
-      <th class="text-left">
-        Name
-      </th>
-      <th class="text-left">
-        Calories
-      </th>
-    </tr>
+      <tr>
+        <th class="text-left">Nom</th>
+        <th class="text-left">Description</th>
+        <th class="text-left">Prix</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Pomme</td>
-      <td>420k</td>
-    </tr>
+      <tr v-for="article in articles" :key="article.id">
+        <td>{{ article.nom }}</td>
+        <td>{{ article.description }}</td>
+        <td>{{ article.prix }}</td>
+        <td></td>
+      </tr>
     </tbody>
   </v-table>
-  <v-container fluid>
-    <v-layout class="fixed-bottom">
-        <v-flex>
-          <v-btn color="grey" class="mr-4">Créer article</v-btn>
-        </v-flex>
-    </v-layout>
-  </v-container>
 </template>
 
 <script>
+import axios from 'axios';
 
-import NavBarComponent from '../NavBar/NavBarComponent.vue'
 export default {
-  components: {NavBarComponent},
-
   data() {
-    return {}
+    return {
+      articles: [],
+    };
   },
-  methods: {},
-}
+  beforeMount() {
+    this.fetchArticles();
+  },
+  methods: {
+    fetchArticles() {
+      axios.get('http://localhost:8080/article/all')
+        .then(response => {
+          this.articles = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+};
 </script>
-
-<style>
-
-</style>

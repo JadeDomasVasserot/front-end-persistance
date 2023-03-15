@@ -1,44 +1,69 @@
 <template>
-    <v-table class="table">
+  <v-table class="table">
     <thead>
-    <tr>
-      <td>Nom</td>
-      <td>Description</td>
-      <td>Prix</td>  
-    </tr>
-    <tr>
-      <th class="text-left">
-        <br>
-        <v-text-field label="Nom"></v-text-field>
-      </th>
-      <th class="text-left">
-        <br>
-        <v-text-field label="Description"></v-text-field>
-      </th>
-      <th class="text-left">
-        <br>
-        <v-text-field label="Prix"></v-text-field>
-      </th>
-    </tr>
+      <tr>
+        <td>Nom</td>
+        <td>Description</td>
+        <td>Prix</td>
+      </tr>
+      <tr>
+        <th class="text-left">
+          <br>
+          <v-text-field v-model="nouvelArticle.nom" label="Nom"></v-text-field>
+        </th>
+        <th class="text-left">
+          <br>
+          <v-text-field v-model="nouvelArticle.description" label="Description"></v-text-field>
+        </th>
+        <th class="text-left">
+          <br>
+          <v-text-field v-model="nouvelArticle.prix" label="Prix"></v-text-field>
+        </th>
+        <th>
+          <v-btn color="grey" @click="ajouterArticle">Ajouter</v-btn>
+        </th>
+      </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Pomme</td>
-      <td>Fruit de type pomme</td>
-      <td>2€/k</td>
-    </tr>
+      <tr v-for="article in articles" :key="article.id">
+        <td>{{ article.nom }}</td>
+        <td>{{ article.description }}</td>
+        <td>{{ article.prix }}</td>
+      </tr>
     </tbody>
   </v-table>
 </template>
 <script>
-
-import NavBarComponent from '../NavBar/NavBarComponent.vue'
+import NavBarComponent from "../NavBar/NavBarComponent.vue";
+import axios from "axios";
 export default {
-  components: {NavBarComponent},
-
+  components: { NavBarComponent },
   data() {
-    return {}
+    return {
+      articles: [],
+      nouvelArticle: {
+        nom: "",
+        description: "",
+        prix: "",
+      },
+    };
+    console.log(articles)
   },
-  methods: {},
-}
+
+  methods: {
+    ajouterArticle() {
+      // Envoi de la requête API pour ajouter le nouvel article
+      axios.post("http://localhost:8080/article/add", this.nouvelArticle).then((response) => {
+        // Ajout de l'article à la liste locale
+        this.articles.push(response.data);
+        // Réinitialisation de l'objet nouvelArticle
+        this.nouvelArticle = {
+          nom: "",
+          description: "",
+          prix: "",
+        };
+      });
+    },
+  },
+};
 </script>

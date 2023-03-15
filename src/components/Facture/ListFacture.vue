@@ -1,37 +1,50 @@
 <template>
-    <v-table class="table">
-      <thead>
+  <v-table class="table">
+    <thead>
       <tr>
-        <th class="text-left">
-          Crée par
-        </th>
-        <th class="text-left">
-            Date
-        </th>
-        <th></th>
+        <th class="text-center">Crée par</th>
+        <th class="text-center">Total</th>
+        <th class="text-center">Date</th>
       </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Pomme</td>
-        <td>420k</td>
-        <td><v-btn>Afficher</v-btn><v-btn>Modifier</v-btn></td>
+    </thead>
+    <tbody>
+
+      <tr v-for="facture in factures" :key="facture.id">
+        <a href=""><td class="text-center">{{ facture.user.nom }} {{ facture.user.prenom }}</td>
+        <td class="text-center">{{ facture.total }}</td>
+        <td class="text-center">{{ facture.date }}</td></a>
       </tr>
-      </tbody>
-    </v-table>
-  </template>
+    </tbody>
+  </v-table>
+</template>
+
   
   <script>
   
   import NavBarComponent from '../NavBar/NavBarComponent.vue'
+  import axios from 'axios';
+
   export default {
-    components: {NavBarComponent},
-  
     data() {
-      return {}
+      return {
+        factures: [],
+      };
     },
-    methods: {},
-  }
+    beforeMount() {
+      this.fetchFactures();
+    },
+    methods: {
+      fetchFactures() {
+        axios.get('http://localhost:8080/facture/getall')
+          .then(response => {
+            this.factures = response.data;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
+    }
+    }
   </script>
   
   <style>
