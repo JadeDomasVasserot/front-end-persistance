@@ -14,14 +14,17 @@
 
         <td class="text-center">{{ facture.user.nom }} {{ facture.user.prenom }}</td>
         <td class="text-center">{{ facture.total }}</td>
-        <td class="text-center">{{ moment(facture.date,'mm/dd/yyyy')}}</td>
+        <td class="text-center">{{ facture.date}}</td>
         <td>
           <v-btn>Afficher</v-btn>
           <v-btn>Modifier</v-btn>
           <v-btn>Supprimer</v-btn>
         </td>
       </tr>
-
+      <router-link to="/AddFacture">
+        <v-btn color="grey">Ajouter Facture</v-btn>
+      </router-link>
+      
     </tbody>
   </v-table>
 </template>
