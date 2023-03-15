@@ -34,10 +34,8 @@
   </v-table>
 </template>
 <script>
-import NavBarComponent from "../NavBar/NavBarComponent.vue";
 import axios from "axios";
 export default {
-  components: { NavBarComponent },
   data() {
     return {
       articles: [],
@@ -47,7 +45,6 @@ export default {
         prix: "",
       },
     };
-    console.log(articles)
   },
 
   methods: {

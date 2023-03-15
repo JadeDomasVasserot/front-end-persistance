@@ -14,11 +14,15 @@
 
         <td class="text-center">{{ facture.user.nom }} {{ facture.user.prenom }}</td>
         <td class="text-center">{{ facture.total }}</td>
-        <td class="text-center">{{ facture.date}}</td>
-        <td>
-          <v-btn>Afficher</v-btn>
-          <v-btn>Modifier</v-btn>
-          <v-btn>Supprimer</v-btn>
+        <td class="text-center">{{
+            getDate(facture.date)
+          }}</td>
+        <td class="text-center">
+          <router-link :to="{ name: 'One Facture', params: { id: facture.id }}" class="text-decoration-none text-black">
+          <v-btn class="mr-5">Afficher</v-btn>
+          </router-link>
+          <v-btn class="ma-5">Modifier</v-btn>
+          <v-btn class="ma-5">Supprimer</v-btn>
         </td>
       </tr>
       <router-link to="/AddFacture">
@@ -33,7 +37,7 @@
   <script>
 
   import axios from 'axios';
-
+  import moment from 'moment'
   export default {
     data() {
       return {
@@ -52,8 +56,12 @@
           .catch(error => {
             console.log(error);
           });
+      },
+      getDate : function (date) {
+        return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
       }
-    }
+    },
+
     }
   </script>
   
