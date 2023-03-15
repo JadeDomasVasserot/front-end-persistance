@@ -30,8 +30,9 @@
   <v-container fluid>
     <v-layout class="fixed-bottom">
         <v-flex>
-        
+        <router-link to="/CreateArticle">
           <v-btn color="grey" class="mr-4">Créer article</v-btn>
+        </router-link>
         </v-flex>
     </v-layout>
   </v-container>

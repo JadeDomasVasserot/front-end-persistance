@@ -1,5 +1,5 @@
 <template>
-     <div class="d-flex align-center justify-center" style="height: 60vh">
+     <div class="d-flex align-center justify-center" style="height: 80vh">
             <v-sheet width="400" class="mx-auto">
                 <v-img class="pb-8" :src="imageSrc" alt="Image" />
 
