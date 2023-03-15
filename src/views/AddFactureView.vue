@@ -8,7 +8,7 @@ import CreateFacture from "../components/Facture/AddFacture.vue";
 import NavBarComponent from "../components/NavBar/NavBarComponent.vue"
 
 export default {
-  name: "CreateView",
+  name: "AddFacture",
   components: {NavBarComponent,CreateFacture}
 }
 </script>

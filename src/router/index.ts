@@ -44,6 +44,11 @@ const router = createRouter({
       name: 'Create a Facture', 
       component: () => import('../views/AddFactureView.vue')
     },
+    {
+      path: '/addArticleToFacture',
+      name: 'Put Article in Facture', 
+      component: () => import('../views/AddArticleToFactureView.vue')
+    },
   ]
 })
 router.beforeEach(async (to, from) => {
