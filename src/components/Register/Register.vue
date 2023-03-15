@@ -13,7 +13,7 @@
                     <v-btn type="submit" variant="outlined" color="#CD3C6F" block class="mt-2">S'inscrire</v-btn>
                 </v-form>
                 <div class="mt-2">
-                  <router-link to="/">
+                  <router-link to="/" class="text-decoration-none text-black">
                    <p class="text-body-2">Vous avez un compte ?<a href="/">Connectez-vous</a></p>
                   </router-link>
                 </div>
