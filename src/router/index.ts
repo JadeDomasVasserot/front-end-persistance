@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from "@/store";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,5 +36,14 @@ const router = createRouter({
     },
   ]
 })
-
+router.beforeEach(async (to, from) => {
+  const authenticated = store.getters.getUser
+  const token = store.getters.getToken
+  // redirect the user to login page if he is not authenticated
+  if (authenticated === '' && token === ''
+      && to.name !== 'login'
+      && to.name !== 'register') {
+    return { name: 'login' }
+  }
+})
 export default router
